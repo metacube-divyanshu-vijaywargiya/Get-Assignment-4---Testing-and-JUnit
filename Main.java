@@ -25,42 +25,53 @@ public class Main {
 			}
 			
 			System.out.println("Entered Array : ");
-			for(int numberEntered : array) {
+			for (int numberEntered : array) {
 				System.out.print(numberEntered + " ");
 			}
 			
-			
-			System.out.println("\n\n 1. Find Largest Mirror in Array. \n 2. Find number of Clumps present in Array. \n 3. Rearrange the array. \n 4. Split Array in 2 equal sum.");
-			System.out.println("Enter a choice : ");
-			int choice = scanner.nextInt();
-			
-			
-			switch (choice) {
-			case 1:
-				System.out.println("Largest Mirror : " + arrOperation.maxMirror(array));
-				break;
+			boolean continueProgram = true;
+
+			while (continueProgram) {
+				System.out.println("\n\n 1. Find Largest Mirror in Array. \n 2. Find number of Clumps present in Array. \n 3. Rearrange the array. \n 4. Split Array in 2 equal sum.");
+				System.out.println("Enter a choice : ");
+				int choice = scanner.nextInt();
 				
-			case 2:
-				System.out.println("Clumps present : " + arrOperation.countClumps(array));
-				break;
 				
-			case 3:
-				System.out.println("Enter X : ");
-				int userInputX = scanner.nextInt();
-				System.out.println("Enter Y : ");
-				int userInputY = scanner.nextInt();
-				System.out.print("Rearranged Array Output : " );
-				for(int numberEntered : arrOperation.fixXY(array, userInputX, userInputY)) {
-					System.out.print(numberEntered + " ");
-				}
-				break;
-				
-			case 4:
-				System.out.println("Split Array Index : " + arrOperation.splitArray(array));
-				break;
-				
+				switch (choice) {
+				case 1:
+					System.out.println("Largest Mirror : " + arrOperation.maxMirror(array));
+					break;
+					
+				case 2:
+					System.out.println("Clumps present : " + arrOperation.countClumps(array));
+					break;
+					
+				case 3:
+					System.out.println("Enter X : ");
+					int userInputX = scanner.nextInt();
+					System.out.println("Enter Y : ");
+					int userInputY = scanner.nextInt();
+					System.out.print("Rearranged Array Output : " );
+					for(int numberEntered : arrOperation.fixXY(array, userInputX, userInputY)) {
+						System.out.print(numberEntered + " ");
+					}
+					break;
+					
+				case 4:
+					System.out.println("Split Array Index : " + arrOperation.splitArray(array));
+					break;
+					
 				default: 
 					System.out.println("Please Enter Valid Input.");
+				}
+				
+				// Ask user to continue or exit
+                System.out.println("\nDo you want to continue? (yes/no)");
+                String userResponse = scanner.next();
+                if (userResponse.equalsIgnoreCase("no")) {
+                    continueProgram = false;
+                }
+				
 			}
 			
 			
